@@ -1,10 +1,12 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 import styles from "./Header.module.scss"
 
 function Header() {
   return (
     <header className={styles.header}>
-      <h1 className={styles.header__logo}>FREE-API</h1>
+      <h1 className={styles.header__logo}>
+        <Link to="/">FREE-API</Link>
+      </h1>
       <nav className={styles.header__nav}>
         <ul>
           <li>

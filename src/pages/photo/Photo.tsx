@@ -16,7 +16,6 @@ function Photo() {
   const catLists = catBreeds
   const [photoInfo, setPhotoInfo] = useState<PhotoInfo[]>([])
   const [currentPage, setCurrentPage] = useState(1)
-
   const handleSearch = async (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = e.target.value
     try {
@@ -31,7 +30,6 @@ function Photo() {
       console.error("에러", error)
     }
   }
-
   const pageSize = 8
   const totalPage = Math.ceil(photoInfo.length / pageSize)
   const getCurrentPageItems = () => {
@@ -39,7 +37,6 @@ function Photo() {
     const endIdx = startIdx + pageSize
     return photoInfo.slice(startIdx, endIdx)
   }
-
   // interface CatType {
   //   id: string
   // }
@@ -50,7 +47,6 @@ function Photo() {
   //   const catIds = data.map((item: CatType) => item.id)
   //   setCatList(catIds)
   // }
-
   // if (catList.length === 0) {
   //   fetchCatData()
   // }
@@ -67,16 +63,16 @@ function Photo() {
         </a>
       </div>
       {/* <select onChange={handleSearch}>
-        <option value="">선택하세요</option>
-        {catLists.length > 0 &&
-          catLists
-            .sort((a, b) => a.kor.localeCompare(b.kor))
-            .map((item) => (
-              <option key={item.eng} value={item.eng}>
-                {item.kor}
-              </option>
-            ))}
-      </select> */}
+          <option value="">선택하세요</option>
+          {catLists.length > 0 &&
+            catLists
+              .sort((a, b) => a.kor.localeCompare(b.kor))
+              .map((item) => (
+                <option key={item.eng} value={item.eng}>
+                  {item.kor}
+                </option>
+              ))}
+        </select> */}
       <Select onChange={handleSearch} lists={catLists} />
       <ul className={styles.photo__list}>
         {getCurrentPageItems().map((item) => {
@@ -89,14 +85,14 @@ function Photo() {
           )
         })}
         {/* {photoInfo.map((item) => {
-          return (
-            <li key={item.id} className={styles.photo__list__item}>
-              <figure className={styles.photo__list__item__img}>
-                <img src={item.url} alt={item.id} />
-              </figure>
-            </li>
-          )
-        })} */}
+            return (
+              <li key={item.id} className={styles.photo__list__item}>
+                <figure className={styles.photo__list__item__img}>
+                  <img src={item.url} alt={item.id} />
+                </figure>
+              </li>
+            )
+          })} */}
       </ul>
       {photoInfo?.length > 0 && (
         <Pagenation

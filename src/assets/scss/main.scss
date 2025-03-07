@@ -1,0 +1,22 @@
+@use "abstracts" as *;
+@use "base";
+@use "styles";
+.main {
+  @include PD-IP2(100, 60);
+  min-height: calc(100vh - 80px);
+  &__wrap {
+    @include FLEX(null, center, column);
+    @include PD-IP1(0, 0, 30, 0);
+    &__tit {
+      @include FONT(32, 700);
+    }
+    &__link {
+      @include FONT(20, 500, var(--color-blue));
+      @include MG-IP1(10, 0, 0, 0);
+      transition: all 0.1s;
+      &:hover {
+        color: var(--color-red);
+      }
+    }
+  }
+}

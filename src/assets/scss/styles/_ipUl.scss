@@ -1,0 +1,15 @@
+@use "@assets/scss/abstracts" as *;
+.ip_ul {
+  .tit_box {
+    @include FLEX(space-between, center);
+    width: 100%;
+    .tit {
+      @include FONT(14, 800, var(--color-contrastyA));
+    }
+  }
+  .bot_box {
+    @include MG-IP1(15, 0, 0, 0);
+    position: relative;
+    width: 100%;
+  }
+}

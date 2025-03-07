@@ -1,0 +1,36 @@
+@use "@assets/scss/abstracts" as *;
+.flexTable {
+  background: var(--base-white);
+  height: 100%;
+  .tr {
+    @include FLEX(null, center);
+    @include BORDER(bottom, var(--color-contrastyF5));
+    width: 100%;
+  }
+  .thead {
+    .tr {
+      @include PD-IP2(6, 20);
+      & > * {
+        @include FONT(11, 700, var(--color-contrastyA));
+      }
+    }
+  }
+  .tbody {
+    @include BORDER(bottom, var(--color-contrastyF5));
+    height: calc(100% - 30px);
+    background-color: var(--base-white);
+    overflow: auto;
+    .tr {
+      @include FONT(14, 500, null, 20px);
+      @include PD-IP1(9, 20, 10, 20);
+      align-self: center;
+      b {
+        @include MG-IP1(0, 4, 0, 0);
+        font-weight: 700;
+      }
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+  }
+}

@@ -1,6 +1,4 @@
 @use "sass:math";
-@forward "./reset.scss";
-/*** setting ***/
 @mixin FLEX($justify: null, $align: null, $direction: null, $wrap: null) {
   display: flex;
   @if $justify {
@@ -114,75 +112,3 @@
 }
 $url-images: "/assets/images/";
 $url-images-ico: "/assets/images/ico/";
-/*** //setting ***/
-
-.main {
-  @include PD-IP2(100, 60);
-  min-height: calc(100vh - 80px);
-  &__wrap {
-    @include FLEX(null, center, column);
-    @include PD-IP1(0, 0, 30, 0);
-    &__tit {
-      @include FONT(32, 700);
-    }
-    &__link {
-      @include FONT(20, 500, var(--color-blue));
-      @include MG-IP1(10, 0, 0, 0);
-      transition: all 0.1s;
-      &:hover {
-        color: var(--color-red);
-      }
-    }
-  }
-}
-
-.flexTable {
-  background: var(--base-white);
-  height: 100%;
-  .tr {
-    @include FLEX(null, center);
-    @include BORDER(bottom, var(--color-contrastyF5));
-    width: 100%;
-  }
-  .thead {
-    .tr {
-      @include PD-IP2(6, 20);
-      & > * {
-        @include FONT(11, 700, var(--color-contrastyA));
-      }
-    }
-  }
-  .tbody {
-    @include BORDER(bottom, var(--color-contrastyF5));
-    height: calc(100% - 30px);
-    background-color: var(--base-white);
-    overflow: auto;
-    .tr {
-      @include FONT(14, 500, null, 20px);
-      @include PD-IP1(9, 20, 10, 20);
-      align-self: center;
-      b {
-        @include MG-IP1(0, 4, 0, 0);
-        font-weight: 700;
-      }
-      &:last-of-type {
-        border-bottom: none;
-      }
-    }
-  }
-}
-
-.ip_ul {
-  .tit_box {
-    @include FLEX(space-between, center);
-    width: 100%;
-    .tit {
-      @include FONT(14, 800, var(--color-contrastyA));
-    }
-  }
-  .bot_box {
-    @include MG-IP1(15, 0, 0, 0);
-    position: relative;
-    width: 100%;
-  }
-}

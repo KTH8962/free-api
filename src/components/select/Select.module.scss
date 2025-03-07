@@ -2,8 +2,8 @@
   @include MG-IP1(0, 0, 20, 0);
   select {
     @include FONT(16, 500);
-    @include PD-IP2(0, 10);
-    @include BG(right 20px center);
+    @include PD-IP1(0, 30, 0, 10);
+    @include BG(right 10px center);
     height: 40px;
     border-radius: 4px;
     font-family: inherit;

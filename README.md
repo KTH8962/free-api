@@ -27,3 +27,11 @@ npm install @types/node
 ### sass 설치
 
 npm install sass
+
+### react ver18 다운그레이드
+
+npm install react@18 react-dom@18
+
+### kakao maps sdk
+
+npm install react-kakao-maps-sdk
