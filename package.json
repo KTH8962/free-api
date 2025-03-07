@@ -12,6 +12,7 @@
   "dependencies": {
     "@swc/core": "^1.11.7",
     "@types/node": "^22.13.9",
+    "@vercel/analytics": "^1.5.0",
     "axios": "^1.8.1",
     "immer": "^10.1.1",
     "localforage": "^1.10.0",
