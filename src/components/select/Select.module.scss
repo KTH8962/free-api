@@ -1,0 +1,13 @@
+.select {
+  @include MG-IP1(0, 0, 20, 0);
+  select {
+    @include FONT(16, 500);
+    @include PD-IP2(0, 10);
+    @include BG(right 20px center);
+    height: 40px;
+    border-radius: 4px;
+    font-family: inherit;
+    cursor: pointer;
+    background-image: url($url-images + "select-arrow.png");
+  }
+}

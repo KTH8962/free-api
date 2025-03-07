@@ -1,0 +1,27 @@
+.header {
+  @include FLEX(space-between, center);
+  @include POSITION(absolute, 0, 0);
+  @include PD-IP2(0, 20);
+  @include BORDER(bottom, var(--color-contrastyC));
+  width: 100%;
+  height: 80px;
+  &__logo {
+    @include FONT(24, 700, var(--color-green));
+  }
+  &__nav {
+    ul {
+      @include FLEX(null, center);
+      gap: 10px;
+      li {
+        a {
+          @include FONT(18, 500);
+          transition: all 0.2s;
+          &.active,
+          &:hover {
+            color: var(--color-blue);
+          }
+        }
+      }
+    }
+  }
+}

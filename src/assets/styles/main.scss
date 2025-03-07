@@ -1,0 +1,188 @@
+@use "sass:math";
+@forward "./reset.scss";
+/*** setting ***/
+@mixin FLEX($justify: null, $align: null, $direction: null, $wrap: null) {
+  display: flex;
+  @if $justify {
+    justify-content: $justify;
+  }
+  @if $align {
+    align-items: $align;
+  }
+  @if $direction {
+    flex-direction: $direction;
+  }
+  @if $wrap {
+    flex-wrap: $wrap;
+  }
+}
+@mixin GRID($columns: null, $gap: null) {
+  display: grid;
+  grid-template-columns: $columns;
+  gap: $gap;
+}
+@mixin PD-IP1($t: null, $r: null, $b: null, $l: null) {
+  padding: if(math.is-unitless($t), #{$t}px, $t)
+    if(math.is-unitless($r), #{$r}px, $r) if(math.is-unitless($b), #{$b}px, $b)
+    if(math.is-unitless($l), #{$l}px, $l);
+}
+@mixin PD-IP2($tb, $lr) {
+  padding: if(math.is-unitless($tb), #{$tb}px, $tb)
+    if(math.is-unitless($lr), #{$lr}px, $lr);
+}
+@mixin MG-IP1($t, $r, $b, $l) {
+  margin: if(math.is-unitless($t), #{$t}px, $t)
+    if(math.is-unitless($r), #{$r}px, $r) if(math.is-unitless($b), #{$b}px, $b)
+    if(math.is-unitless($l), #{$l}px, $l);
+}
+@mixin MG-IP2($tb, $lr) {
+  margin: if(math.is-unitless($tb), #{$tb}px, $tb)
+    if(math.is-unitless($lr), #{$lr}px, $lr);
+}
+@mixin MG-AUTO($tb) {
+  margin: if(math.is-unitless($tb), #{$tb}px, $tb) auto;
+}
+@mixin WTO($block: false, $line: false) {
+  @if $line {
+    white-space: normal;
+    display: -webkit-box !important;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  } @else {
+    white-space: nowrap;
+    @if $block {
+      display: block !important;
+    }
+  }
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+@mixin POSITION($pos: relative, $t: null, $r: null, $b: null, $l: null) {
+  position: $pos;
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+}
+@mixin FONT(
+  $size: null,
+  $weight: null,
+  $color: null,
+  $lineHeight: null,
+  $letterSpacing: null
+) {
+  @if $size {
+    font-size: if(math.is-unitless($size), #{$size}px, $size);
+  }
+  font: {
+    weight: $weight;
+  }
+  color: $color;
+  line-height: $lineHeight;
+  letter-spacing: $letterSpacing;
+}
+@mixin BG($pos: false, $size: auto, $repeat: no-repeat) {
+  @if $pos {
+    background: $pos / $size $repeat;
+  } @else {
+    background-size: $size;
+    background-repeat: $repeat;
+  }
+}
+@mixin BORDER($box, $color, $px: 1, $type: solid) {
+  @if $box == full {
+    border: if(math.is-unitless($px), #{$px}px, $px) $type $color;
+  } @else if $box == top {
+    border-top: if(math.is-unitless($px), #{$px}px, $px) $type $color;
+  } @else if $box == right {
+    border-right: if(math.is-unitless($px), #{$px}px, $px) $type $color;
+  } @else if $box == bottom {
+    border-bottom: if(math.is-unitless($px), #{$px}px, $px) $type $color;
+  } @else if $box == left {
+    border-left: if(math.is-unitless($px), #{$px}px, $px) $type $color;
+  }
+}
+@mixin BOX-SHADOW($x, $y, $blur, $spread: null, $color) {
+  $spread-value: if($spread == null, 0px, $spread);
+  box-shadow: if(math.is-unitless($x), #{$x}px, $x)
+    if(math.is-unitless($y), #{$y}px, $y)
+    if(math.is-unitless($blur), #{$blur}px, $blur)
+    if(math.is-unitless($spread-value), #{$spread-value}px, $spread-value)
+    $color;
+}
+$url-images: "/assets/images/";
+$url-images-ico: "/assets/images/ico/";
+/*** //setting ***/
+
+.main {
+  @include PD-IP2(100, 60);
+  min-height: calc(100vh - 80px);
+  &__wrap {
+    @include FLEX(null, center, column);
+    @include PD-IP1(0, 0, 30, 0);
+    &__tit {
+      @include FONT(32, 700);
+    }
+    &__link {
+      @include FONT(20, 500, var(--color-blue));
+      @include MG-IP1(10, 0, 0, 0);
+      transition: all 0.1s;
+      &:hover {
+        color: var(--color-red);
+      }
+    }
+  }
+}
+
+.flexTable {
+  background: var(--base-white);
+  height: 100%;
+  .tr {
+    @include FLEX(null, center);
+    @include BORDER(bottom, var(--color-contrastyF5));
+    width: 100%;
+  }
+  .thead {
+    .tr {
+      @include PD-IP2(6, 20);
+      & > * {
+        @include FONT(11, 700, var(--color-contrastyA));
+      }
+    }
+  }
+  .tbody {
+    @include BORDER(bottom, var(--color-contrastyF5));
+    height: calc(100% - 30px);
+    background-color: var(--base-white);
+    overflow: auto;
+    .tr {
+      @include FONT(14, 500, null, 20px);
+      @include PD-IP1(9, 20, 10, 20);
+      align-self: center;
+      b {
+        @include MG-IP1(0, 4, 0, 0);
+        font-weight: 700;
+      }
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+.ip_ul {
+  .tit_box {
+    @include FLEX(space-between, center);
+    width: 100%;
+    .tit {
+      @include FONT(14, 800, var(--color-contrastyA));
+    }
+  }
+  .bot_box {
+    @include MG-IP1(15, 0, 0, 0);
+    position: relative;
+    width: 100%;
+  }
+}
