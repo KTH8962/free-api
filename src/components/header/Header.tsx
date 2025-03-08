@@ -25,6 +25,14 @@ function Header() {
               사진
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/kakao"
+              className={({ isActive }) => (isActive ? styles.active : "")}
+            >
+              카카오지도
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>

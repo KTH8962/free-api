@@ -1,31 +1,57 @@
 import { catBreeds } from "@constants/catBreeds"
 import styles from "./Photo.module.scss"
 import axios from "axios"
-import { useState } from "react"
 import Select from "@components/select/Select"
 import Pagenation from "@components/pagenation/Pagenation"
+import { usePhotoStore } from "@store/usePhotoStore"
 
-interface PhotoInfo {
-  id: string
-  url: string
-  width: number
-  height: number
-}
+// interface PhotoInfo {
+//   id: string
+//   url: string
+//   width: number
+//   height: number
+// }
 
 function Photo() {
   const catLists = catBreeds
-  const [photoInfo, setPhotoInfo] = useState<PhotoInfo[]>([])
-  const [currentPage, setCurrentPage] = useState(1)
+  // 고양이 종류 선택
+  const selectedBreed = usePhotoStore((state) => state.selectedBreed)
+  const setBreed = usePhotoStore((state) => state.actions.setBreed)
+  // const { selectedBreed, setBreed } = usePhotoStore((state) => ({
+  //   selectedBreed: state.selectedBreed,
+  //   setBreed: state.actions.setBreed,
+  // })) set이랑 같이부르면 무한루프 빠짐 state값들만 사용하기로
+  // 선택된 고양이 리스트
+  //const [photoInfo, setPhotoInfo] = useState<PhotoInfo[]>([])
+  const photoInfo = usePhotoStore((state) => state.photoInfo)
+  const setPhoto = usePhotoStore((state) => state.actions.setPhoto)
+  // 선택된 페이지
+  const currentPage = usePhotoStore((state) => state.currentPage)
+  const setCurrent = usePhotoStore((state) => state.actions.setCurrent)
+  // const [currentPage, setCurrentPage] = useState(1)
+
   const handleSearch = async (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = e.target.value
+
+    // 새로 선택 할 경우에만 설정
+    if (selectedBreed !== selectedValue) {
+      setBreed(selectedValue)
+    }
     try {
       const { data } = await axios.get(
         `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=${selectedValue},&api_key=${
           import.meta.env.VITE_DOG_API_KEY
         }`
       )
-      setCurrentPage(1)
-      setPhotoInfo(data)
+      // 페이지가 1로 설정되지 않으면 설정
+      if (currentPage !== 1) {
+        setCurrent(1)
+      }
+
+      // 사진 정보가 기존과 다르면만 상태 업데이트
+      if (JSON.stringify(photoInfo) !== JSON.stringify(data)) {
+        setPhoto(data)
+      }
     } catch (error) {
       console.error("에러", error)
     }
@@ -73,7 +99,11 @@ function Photo() {
                 </option>
               ))}
         </select> */}
-      <Select onChange={handleSearch} lists={catLists} />
+      <Select
+        onChange={handleSearch}
+        lists={catLists}
+        selected={selectedBreed}
+      />
       <ul className={styles.photo__list}>
         {getCurrentPageItems().map((item) => {
           return (
@@ -98,7 +128,7 @@ function Photo() {
         <Pagenation
           totalPage={totalPage}
           currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
+          setCurrentPage={setCurrent}
         />
       )}
     </main>

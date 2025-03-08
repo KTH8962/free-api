@@ -2,13 +2,13 @@
 @use "base";
 @use "styles";
 .main {
-  @include PD-IP2(100, 60);
+  @include PD-IP2(80, 40);
   min-height: calc(100vh - 80px);
   &__wrap {
     @include FLEX(null, center, column);
     @include PD-IP1(0, 0, 30, 0);
     &__tit {
-      @include FONT(32, 700);
+      @include FONT(40, 700);
     }
     &__link {
       @include FONT(20, 500, var(--color-blue));
@@ -18,5 +18,29 @@
         color: var(--color-red);
       }
     }
+    &__desc {
+      @include FONT(20, 500);
+      @include MG-IP1(10, 0, 0, 0);
+      + .table {
+        @include MG-IP1(10, 0, 0, 0);
+      }
+    }
+    &__list {
+      @include FONT(16, 500, var(--color-contrasty6));
+      @include MG-IP1(10, 0, 0, 0);
+      li + li {
+        @include MG-IP1(6, 0, 0, 0);
+      }
+    }
+  }
+}
+
+.flex {
+  @include FLEX;
+  @include PD-IP1(10, 0, 20, 0);
+  width: 100%;
+  gap: 10px 20px;
+  &__wrap {
+    flex: 0 1 100%;
   }
 }

@@ -1,0 +1,16 @@
+@use "@assets/scss/abstracts" as *;
+.table {
+  width: 100%;
+  tr,
+  th,
+  td {
+    @include BORDER(full, var(--color-contrastyC));
+  }
+  th {
+    @include FONT(null, 700, var(--color-contrasty6));
+    background-color: var(--color-contrastyF5);
+  }
+  td {
+    @include PD-IP2(15, 10);
+  }
+}

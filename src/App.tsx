@@ -1,4 +1,5 @@
 import Header from "@components/header/Header"
+import Main from "@pages/main/Main"
 import Maps from "@pages/maps/Maps"
 import Photo from "@pages/photo/Photo"
 import { Analytics } from "@vercel/analytics/react"
@@ -9,7 +10,8 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route index path="/" element={<Maps />}></Route>
+        <Route index path="/" element={<Main />}></Route>
+        <Route index path="/kakao" element={<Maps />}></Route>
         <Route path="/photo" element={<Photo />}></Route>
       </Routes>
       <Analytics />

@@ -272,7 +272,12 @@ body {
 label {
   cursor: pointer;
 }
-
+table,
+tr,
+th,
+td {
+  border-collapse: collapse;
+}
 :root {
   --base-font: "Roboto", "Noto Sans KR", sans-serif;
   --noto-font: "Noto Sans KR", sans-serif;
@@ -281,6 +286,7 @@ label {
   --base-white: #ffffff;
   --color-contrasty2: #222222;
   --color-contrasty3: #333333;
+  --color-contrasty6: #666666;
   --color-contrastyA: #aaaaaa;
   --color-contrastyC: #cccccc;
   --color-contrastyE5: #e5e5e5;
@@ -293,9 +299,6 @@ label {
   --btn-blue: #1e51a4;
   --btn-blue2: #003995;
   --btn-skyblue: #67b2e7;
-  --btn-gray: #aaaaaa;
-  --btn-gray2: #bdbdbd;
-  --btn-gray3: #666666;
 }
 /*** //basic-reset ***/
 

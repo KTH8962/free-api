@@ -1,10 +1,13 @@
-import { Dispatch, SetStateAction } from "react"
+// import { Dispatch, SetStateAction } from "react"
 import styles from "./Pagenation.module.scss"
 
 type Props = {
   totalPage: number
   currentPage: number
-  setCurrentPage: Dispatch<SetStateAction<number>>
+  // useState 사용시
+  // setCurrentPage: Dispatch<SetStateAction<number>>
+  // zustand 사용시
+  setCurrentPage: (page: number) => void
 }
 
 function Pagenation({ totalPage, currentPage, setCurrentPage }: Props) {

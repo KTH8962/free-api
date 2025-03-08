@@ -2,13 +2,14 @@ import styles from "./Select.module.scss"
 
 interface SelectProps {
   lists: Record<string, string>[]
+  selected: string
   onChange: React.ChangeEventHandler<HTMLSelectElement>
 }
 
-function Select({ lists, onChange }: SelectProps) {
+function Select({ lists, selected, onChange }: SelectProps) {
   return (
     <div className={styles.select}>
-      <select onChange={onChange}>
+      <select onChange={onChange} value={selected}>
         <option value="">선택하세요</option>
         {lists.length > 0 &&
           lists
