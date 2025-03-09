@@ -1,0 +1,49 @@
+@use "@scss/abstracts";
+.user {
+  @include FLEX(space-between, center);
+  @include PD-IP1(30, 30, 35, 30);
+  @include MG-IP1(30, 0, 0, 0);
+  @include BOX-SHADOW(2, 2, 10, null, rgba(0, 0, 0, 0.15));
+  border-radius: 10px;
+  gap: 0 30px;
+  overflow: hidden;
+  animation: fadeIn 1.5s;
+  &__img {
+    overflow: hidden;
+    border-radius: 100%;
+    aspect-ratio: 1/1;
+    min-width: 128px;
+    &__box {
+      aspect-ratio: 1/1;
+    }
+  }
+  &__info {
+    @include FLEX(null, null, null, wrap);
+    flex: 0 1 100%;
+    gap: 20px;
+    li {
+      flex: 0 1 calc(50% - 10px);
+      &:nth-last-of-type(1) {
+        flex: 0 1 100%;
+      }
+    }
+    &__tit {
+      @include FONT(18, 500);
+    }
+    &__desc {
+      @include FONT(20, 500, var(--color-contrastyA));
+      @include MG-IP1(6, 0, 0, 0);
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

@@ -1,0 +1,16 @@
+@use "@scss/abstracts" as *;
+.btn {
+  &__default {
+    @include FONT(16, 500, null, 1);
+    @include PD-IP2(15, 20);
+    @include BORDER(full, var(--color-contrastyA));
+    border-radius: 6px;
+    min-width: 100px;
+    transition: all 0.2s;
+    &:hover {
+      border-color: var(--color-blue);
+      background-color: var(--color-blue);
+      color: white;
+    }
+  }
+}

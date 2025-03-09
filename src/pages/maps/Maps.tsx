@@ -47,7 +47,7 @@ function Maps() {
   }
 
   return (
-    <main className={styles.main}>
+    <main className={`${styles.map} ${styles.main}`}>
       {/* <input
         type="text"
         placeholder="주소를 입력하세요"
@@ -57,7 +57,7 @@ function Maps() {
       />
       <button onClick={handleSearch}>주소 검색</button> */}
       <div className={styles.main__wrap}>
-        <h2 className={styles.main__wrap__tit}>카카오맵 API</h2>
+        <h2 className={styles.main__wrap__tit}>카카오 지도 API</h2>
         <a
           href="https://apis.map.kakao.com/"
           target="_blank"
@@ -72,7 +72,7 @@ function Maps() {
         onKeyDown={keyDownEvent}
         onClick={handleSearch}
       />
-      <div className={styles.map}>
+      <div className={styles.map__wrap}>
         <Map
           center={location}
           style={{ width: "100%", height: "60vh" }}

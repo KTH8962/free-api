@@ -1,0 +1,44 @@
+@use "sass:list";
+.loading {
+  @include POSITION(fixed, 0, 0);
+  @include FLEX(center, center);
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  &__wrap {
+    @include FLEX(center, center);
+    gap: 0 14px;
+    em {
+      width: 14px;
+      height: 14px;
+      border-radius: 100%;
+      background-color: white;
+      animation: loadingItem 2.5s infinite linear;
+      $color: (
+        rgb(243, 212, 212),
+        rgb(163, 220, 243),
+        rgb(188, 240, 158),
+        rgb(113, 117, 134)
+      );
+      @for $i from 1 through 4 {
+        &:nth-of-type(#{$i}) {
+          $delay: ($i * 0.4) - 0.25s;
+          animation-delay: $delay;
+          background-color: list.nth($color, $i);
+        }
+      }
+    }
+  }
+}
+
+@keyframes loadingItem {
+  0% {
+    transform: translateY(0vw);
+  }
+  50% {
+    transform: translateY(-5.5vw);
+  }
+  100% {
+    transform: translateY(0vw);
+  }
+}

@@ -28,7 +28,6 @@ function Photo() {
   // 선택된 페이지
   const currentPage = usePhotoStore((state) => state.currentPage)
   const setCurrent = usePhotoStore((state) => state.actions.setCurrent)
-  // const [currentPage, setCurrentPage] = useState(1)
 
   const handleSearch = async (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = e.target.value
@@ -38,11 +37,15 @@ function Photo() {
       setBreed(selectedValue)
     }
     try {
-      const { data } = await axios.get(
-        `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=${selectedValue},&api_key=${
-          import.meta.env.VITE_DOG_API_KEY
-        }`
-      )
+      // const { data } = await axios.get(
+      //   `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=${selectedValue},&api_key=${
+      //     import.meta.env.VITE_DOG_API_KEY
+      //   }`
+      // )
+      const url = `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=${selectedValue},&api_key=${
+        import.meta.env.VITE_DOG_API_KEY
+      }`
+      const { data } = await axios({ url, method: "GET" })
       // 페이지가 1로 설정되지 않으면 설정
       if (currentPage !== 1) {
         setCurrent(1)

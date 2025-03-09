@@ -1,5 +1,7 @@
 .map {
-  @include BORDER(full, var(--color-contrastyC));
-  border-radius: 6px;
-  overflow: hidden;
+  &__wrap {
+    @include BORDER(full, var(--color-contrastyC));
+    border-radius: 6px;
+    overflow: hidden;
+  }
 }

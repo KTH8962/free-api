@@ -1,4 +1,4 @@
-@use "@assets/scss/abstracts" as *;
+@use "@scss/abstracts" as *;
 .ip_ul {
   .tit_box {
     @include FLEX(space-between, center);

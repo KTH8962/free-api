@@ -17,13 +17,15 @@ export default defineConfig({
       "@components": getAliasPath("./src/components"),
       "@pages": getAliasPath("./src/pages"),
       "@store": getAliasPath("./src/store"),
+      "@hooks": getAliasPath("./src/hooks"),
       "@constants": getAliasPath("./src/constants"),
+      "@scss": getAliasPath("./src/assets/scss"),
     },
   },
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@use '@assets/scss/main.scss' as *; @use "@assets/scss/abstracts" as *;`,
+        additionalData: `@use '@assets/scss/main.scss' as *; @use "@scss/abstracts" as *;`,
       },
     },
   },
