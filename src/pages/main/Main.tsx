@@ -65,19 +65,21 @@ function Main() {
               </div>
             </div>
             <div className={styles.tr}>
+              <div className={styles.td}>랜덤 유저 정보</div>
+              <div className={styles.td}>
+                랜덤으로 제공되는 유저 정보 불러오기
+              </div>
+              <div className={styles.td}>
+                <Link to="/user">보러가기</Link>
+              </div>
+            </div>
+            <div className={styles.tr}>
               <div className={styles.td}>카카오 지도</div>
               <div className={styles.td}>카카오맵 API를 이용한 지도 검색</div>
               <div className={styles.td}>
                 <Link to="/kakao">보러가기</Link>
               </div>
             </div>
-            {/* <div className={styles.tr}>
-              <div className={styles.td}></div>
-              <div className={styles.td}></div>
-              <div className={styles.td}>
-                <Link to="/photo">보러가기</Link>
-              </div>
-            </div> */}
             {/* <div className={styles.tr}>
               <div className={styles.td}></div>
               <div className={styles.td}></div>

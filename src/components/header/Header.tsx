@@ -27,18 +27,18 @@ function Header() {
           </li>
           <li>
             <NavLink
-              to="/kakao"
-              className={({ isActive }) => (isActive ? styles.active : "")}
-            >
-              카카오 지도
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
               to="/user"
               className={({ isActive }) => (isActive ? styles.active : "")}
             >
               유저 정보
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/kakao"
+              className={({ isActive }) => (isActive ? styles.active : "")}
+            >
+              카카오 지도
             </NavLink>
           </li>
         </ul>

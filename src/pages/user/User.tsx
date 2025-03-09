@@ -3,7 +3,7 @@ import styles from "./User.module.scss"
 import axios from "axios"
 // import { userDto } from "@constants/userDto"
 import Loading from "@components/loading/Loading"
-import { useUserStore } from "@store/usUserStore"
+import { useUserStore } from "@store/useUserStore"
 
 function User() {
   //const [user, setUser] = useState<userDto>()
