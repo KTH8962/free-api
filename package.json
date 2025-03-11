@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@amcharts/amcharts4": "^4.10.40",
+    "@amcharts/amcharts4-geodata": "^4.1.30",
     "@swc/core": "^1.11.7",
     "@types/node": "^22.13.9",
     "@vercel/analytics": "^1.5.0",
