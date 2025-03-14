@@ -84,7 +84,35 @@ function Main() {
               <div className={styles.td}></div>
               <div className={styles.td}></div>
               <div className={styles.td}>
-                <Link to="/photo">보러가기</Link>
+                <Link to="/">보러가기</Link>
+              </div>
+            </div> */}
+          </div>
+        </div>
+      </div>
+      <div className={styles.main__wrap}>
+        <h2 className={styles.main__wrap__tit}>라이브러리 LIST</h2>
+        <div className={styles.flexTable}>
+          <div className={styles.thead}>
+            <div className={styles.tr}>
+              <div className={styles.th}>제목</div>
+              <div className={styles.th}>내용</div>
+              <div className={styles.th}>주소</div>
+            </div>
+          </div>
+          <div className={styles.tbody}>
+            <div className={styles.tr}>
+              <div className={styles.td}>세계지도</div>
+              <div className={styles.td}></div>
+              <div className={styles.td}>
+                <Link to="/">보러가기</Link>
+              </div>
+            </div>
+            {/* <div className={styles.tr}>
+              <div className={styles.td}></div>
+              <div className={styles.td}></div>
+              <div className={styles.td}>
+                <Link to="/">보러가기</Link>
               </div>
             </div> */}
           </div>

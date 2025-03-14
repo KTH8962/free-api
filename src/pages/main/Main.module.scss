@@ -4,6 +4,9 @@
     @include PD-IP1(30, 20, 40, 20);
     border-radius: 10px;
   }
+  &__wrap + &__wrap {
+    @include MG-IP1(60, 0, 0, 0);
+  }
 }
 
 .flexTable {

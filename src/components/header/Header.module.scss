@@ -11,10 +11,10 @@
   &__nav {
     ul {
       @include FLEX(null, center);
-      gap: 10px;
+      gap: 15px;
       li {
         a {
-          @include FONT(18, 500);
+          @include FONT(17, 500);
           transition: all 0.2s;
           &.active,
           &:hover {
