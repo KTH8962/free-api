@@ -41,6 +41,14 @@ function Header() {
               카카오 지도
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/motion"
+              className={({ isActive }) => (isActive ? styles.active : "")}
+            >
+              모션
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>

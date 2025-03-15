@@ -35,3 +35,7 @@ npm install react@18 react-dom@18
 ### kakao maps sdk
 
 npm install react-kakao-maps-sdk
+
+### framer-motion 설치
+
+npm i framer-motion

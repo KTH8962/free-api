@@ -102,10 +102,10 @@ function Main() {
           </div>
           <div className={styles.tbody}>
             <div className={styles.tr}>
-              <div className={styles.td}>세계지도</div>
-              <div className={styles.td}></div>
+              <div className={styles.td}>Framer-Motion</div>
+              <div className={styles.td}>framer-motion 간단 사용</div>
               <div className={styles.td}>
-                <Link to="/">보러가기</Link>
+                <Link to="/motion">보러가기</Link>
               </div>
             </div>
             {/* <div className={styles.tr}>
