@@ -1,0 +1,20 @@
+@use "@scss/abstracts" as *;
+.tab {
+  @include FLEX;
+  width: 100%;
+  height: 50px;
+  &__box {
+    @include FLEX;
+    flex: 1 1 auto;
+    &__btn {
+      @include FONT(18, 400);
+      flex: 1 1 auto;
+      transition: all 0.2s;
+      &.active,
+      &:hover {
+        @include FONT(null, 500, var(--base-white));
+        background-color: var(--base-black);
+      }
+    }
+  }
+}

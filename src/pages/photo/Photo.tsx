@@ -4,6 +4,7 @@ import axios from "axios"
 import Select from "@components/select/Select"
 import Pagenation from "@components/pagenation/Pagenation"
 import { usePhotoStore } from "@store/usePhotoStore"
+import { motion } from "framer-motion"
 
 // interface PhotoInfo {
 //   id: string
@@ -79,6 +80,20 @@ function Photo() {
   // if (catList.length === 0) {
   //   fetchCatData()
   // }
+  const listVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.2,
+        duration: 1,
+      },
+    }),
+  }
   return (
     <main className={`${styles.photo} ${styles.main}`}>
       <div className={styles.main__wrap}>
@@ -108,13 +123,25 @@ function Photo() {
         selected={selectedBreed}
       />
       <ul className={styles.photo__list}>
-        {getCurrentPageItems().map((item) => {
+        {getCurrentPageItems().map((item, i) => {
           return (
-            <li key={item.id} className={styles.photo__list__item}>
+            <motion.li
+              key={item.id}
+              className={styles.photo__list__item}
+              initial="hidden"
+              animate="visible"
+              variants={listVariants}
+              custom={i}
+            >
               <figure className={styles.photo__list__item__img}>
                 <img src={item.url} alt={item.id} />
               </figure>
-            </li>
+            </motion.li>
+            // <li key={item.id} className={styles.photo__list__item}>
+            //   <figure className={styles.photo__list__item__img}>
+            //     <img src={item.url} alt={item.id} />
+            //   </figure>
+            // </li>
           )
         })}
         {/* {photoInfo.map((item) => {
