@@ -1,5 +1,5 @@
 import styles from "./Motion.module.scss"
-import CheckItem from "@components/motionItems/checkItem"
+import CheckItem from "@components/motionItems/CheckItem"
 import MotionApply from "@components/motionItems/MotionApply"
 import { useState } from "react"
 
