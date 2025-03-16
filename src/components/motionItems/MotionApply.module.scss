@@ -2,9 +2,21 @@
   @include PD-IP2(60, 30);
   min-height: 100vh;
   &__box {
+    .slider {
+      @include FLEX(center, center);
+      height: 50vh;
+      .slide {
+        @include FLEX(center, center);
+        @include FONT(10vmin, 500, var(--base-white));
+        background-color: var(--color-green);
+        width: 50vmin;
+        height: 50vmin;
+        border-radius: 10px;
+      }
+    }
   }
   &__box + &__box {
-    @include MG-IP1(60, 0, 0, 0);
+    @include MG-IP1(250, 0, 0, 0);
   }
   &__list {
     @include FLEX(null, null, null, wrap);

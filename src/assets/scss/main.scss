@@ -44,3 +44,11 @@
     flex: 0 1 100%;
   }
 }
+
+.bar {
+  @include POSITION(fixed, null, null, 0);
+  background-color: #f90;
+  height: 10px;
+  width: 100%;
+  transform-origin: left;
+}

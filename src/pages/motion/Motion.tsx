@@ -2,11 +2,14 @@ import styles from "./Motion.module.scss"
 import CheckItem from "@components/motionItems/CheckItem"
 import MotionApply from "@components/motionItems/MotionApply"
 import { useState } from "react"
+import { motion, useScroll } from "framer-motion"
 
 function Motion() {
   const [tabIdx, setTabIdx] = useState(0)
+  const { scrollYProgress } = useScroll()
   return (
     <div className={styles.motion}>
+      <motion.div className={styles.bar} style={{ scaleX: scrollYProgress }} />
       <ul className={styles.tab}>
         <li className={styles.tab__box}>
           <button
