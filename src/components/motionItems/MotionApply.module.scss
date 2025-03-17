@@ -40,4 +40,59 @@
       }
     }
   }
+  .buttons {
+    @include FLEX(center, center);
+    @include MG-IP1(20, 0, 0, 0);
+    gap: 0 16px;
+    button {
+      @include FLEX(center, center);
+      @include FONT(18, 500);
+      @include PD-IP2(10, 20);
+      @include BORDER(full, var(--color-contrastyA));
+      height: 40px;
+      border-radius: 4px;
+      transition: all 0.2s;
+      &:disabled {
+        @include FONT(null, null, var(--base-white));
+        background-color: var(--color-contrastyA);
+      }
+      &:hover {
+        @include FONT(null, null, var(--base-white));
+        background-color: var(--base-black);
+        border-color: var(--base-black);
+      }
+    }
+  }
+  &__rides {
+    @include FLEX(center, center, null, wrap);
+    max-width: 600px;
+    gap: 20px;
+    &__item {
+      @include FLEX(center, center, column);
+      flex: 0 1 calc(calc(100% / 3) - calc(40px / 3));
+      &__img {
+        width: 90%;
+        overflow: hidden;
+        border-radius: 100%;
+        img {
+          width: 100%;
+          transition: all 0.2s;
+        }
+      }
+      &__desc {
+        @include FONT(14, 500);
+        @include MG-IP1(10, 0, 0, 0);
+        transition: all 0.2s;
+      }
+      &:hover {
+        img {
+          transform: scale(1.2);
+        }
+        p[class*="desc"] {
+          color: var(--color-green);
+          text-decoration: underline var(--color-green) 2px;
+        }
+      }
+    }
+  }
 }

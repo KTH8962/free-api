@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useState } from "react"
 
 function useAxios() {
   const [loading, setLoading] = useState(false)
@@ -11,7 +11,7 @@ function useAxios() {
       setError("null")
       try {
         const response = await axios({ url, method, data: body, headers })
-        console.log(response.data)
+        //console.log(response.data)
 
         setData(response.data)
       } catch (error: unknown) {
@@ -28,11 +28,11 @@ function useAxios() {
     },
     []
   )
-  useEffect(() => {
-    if (data) {
-      console.log("데이터가 변경되었습니다: ", data)
-    }
-  }, [data])
+  // useEffect(() => {
+  //   if (data) {
+  //     console.log("데이터가 변경되었습니다: ", data)
+  //   }
+  // }, [data])
   return { loading, error, data, sendReq }
 }
 

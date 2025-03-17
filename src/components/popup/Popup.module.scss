@@ -1,0 +1,28 @@
+.popup {
+  @include FLEX(center, center);
+  @include POSITION(fixed, 0, 0);
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  &__box {
+    @include PD-IP2(20, 20);
+    @include POSITION(relative);
+    border-radius: 10px;
+    background-color: var(--base-white);
+    min-width: 400px;
+    min-height: 50%;
+    max-height: calc(100% - 50px);
+    overflow-y: auto;
+    &__tit {
+      @include FONT(24, 500);
+    }
+    &__close {
+      @include FONT(0);
+      @include BG(center, 16px auto);
+      @include POSITION(absolute, 20px, 20px);
+      width: 20px;
+      height: 20px;
+      background-image: url($url-images-ico + "ico_close.png");
+    }
+  }
+}

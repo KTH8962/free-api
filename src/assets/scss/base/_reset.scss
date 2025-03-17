@@ -177,7 +177,7 @@ img {
   outline: none;
 }
 :disabled {
-  cursor: auto !important;
+  cursor: not-allowed !important;
 }
 input::placeholder,
 input::-webkit-input-placeholder {
