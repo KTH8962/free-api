@@ -1,11 +1,13 @@
 import { useState } from "react"
 import styles from "./MotionApply.module.scss"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, useMotionValue } from "framer-motion"
 
 function MotionApply() {
   const mtLists = [1, 2, 3, 4]
   const [direction, setDirection] = useState<"next" | "prev">("next")
   const [visibleIndex, setVisibleIndex] = useState(0)
+  const [xValue, setXValue] = useState(0)
+  const x = useMotionValue(xValue)
   const slides = [
     { id: 0, content: "0", background: "skyblue" },
     { id: 1, content: "1", background: "beige" },
@@ -82,6 +84,34 @@ function MotionApply() {
                   exit="exit"
                   custom={direction}
                   className={styles.slide}
+                  drag="x"
+                  dragSnapToOrigin
+                  dragTransition={{ bounceStiffness: 300, bounceDamping: 50 }}
+                  whileTap={{ scale: 0.9 }}
+                  dragConstraints={{
+                    left: -window.innerWidth,
+                    right: window.innerWidth,
+                  }}
+                  dragElastic={false}
+                  onDrag={(event, info) => {
+                    setXValue(info.point.x)
+                    x.set(info.offset.x)
+                  }}
+                  onDragEnd={(event, info) => {
+                    if (
+                      info.offset.x < 0 &&
+                      Math.abs(info.offset.x) >= window.innerWidth / 4
+                    ) {
+                      showNextSlide()
+                    } else if (
+                      info.offset.x > 0 &&
+                      info.offset.x >= window.innerWidth / 4
+                    ) {
+                      showPrevSlide()
+                    }
+                    setXValue(info.point.x)
+                    x.set(info.point.x)
+                  }}
                 >
                   {item.content}
                 </motion.div>

@@ -1,10 +1,12 @@
 import { catBreeds } from "@constants/catBreeds"
 import styles from "./Photo.module.scss"
-import axios from "axios"
+//import axios from "axios"
 import Select from "@components/select/Select"
 import Pagenation from "@components/pagenation/Pagenation"
 import { usePhotoStore } from "@store/usePhotoStore"
 import { motion } from "framer-motion"
+import useAxios from "@hooks/useAxios"
+import { useEffect } from "react"
 
 // interface PhotoInfo {
 //   id: string
@@ -29,7 +31,7 @@ function Photo() {
   // 선택된 페이지
   const currentPage = usePhotoStore((state) => state.currentPage)
   const setCurrent = usePhotoStore((state) => state.actions.setCurrent)
-
+  const { data, sendReq } = useAxios()
   const handleSearch = async (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = e.target.value
 
@@ -46,16 +48,14 @@ function Photo() {
       const url = `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=${selectedValue},&api_key=${
         import.meta.env.VITE_DOG_API_KEY
       }`
-      const { data } = await axios({ url, method: "GET" })
+      //const { data } = await axios({ url, method: "GET" })
+      await sendReq(url, "GET")
       // 페이지가 1로 설정되지 않으면 설정
       if (currentPage !== 1) {
         setCurrent(1)
       }
 
       // 사진 정보가 기존과 다르면만 상태 업데이트
-      if (JSON.stringify(photoInfo) !== JSON.stringify(data)) {
-        setPhoto(data)
-      }
     } catch (error) {
       console.error("에러", error)
     }
@@ -67,6 +67,11 @@ function Photo() {
     const endIdx = startIdx + pageSize
     return photoInfo.slice(startIdx, endIdx)
   }
+  useEffect(() => {
+    if (data && JSON.stringify(photoInfo) !== JSON.stringify(data)) {
+      setPhoto(data)
+    }
+  }, [data, photoInfo, setPhoto])
   // interface CatType {
   //   id: string
   // }
