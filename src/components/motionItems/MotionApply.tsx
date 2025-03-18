@@ -174,11 +174,11 @@ function MotionApply() {
                     right: window.innerWidth,
                   }}
                   dragElastic={false}
-                  onDrag={(event, info) => {
+                  onDrag={(_, info) => {
                     setXValue(info.point.x)
                     x.set(info.offset.x)
                   }}
-                  onDragEnd={(event, info) => {
+                  onDragEnd={(_, info) => {
                     if (
                       info.offset.x < 0 &&
                       Math.abs(info.offset.x) >= window.innerWidth / 4
