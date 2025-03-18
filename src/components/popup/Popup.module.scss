@@ -24,5 +24,12 @@
       height: 20px;
       background-image: url($url-images-ico + "ico_close.png");
     }
+    &__content {
+      @include FLEX(null, center, column);
+      max-width: 500px;
+      &__img {
+        @include MG-IP2(20, 0);
+      }
+    }
   }
 }

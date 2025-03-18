@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import styles from "./MotionApply.module.scss"
 import { motion, AnimatePresence, useMotionValue } from "framer-motion"
-//import Popup from "@components/popup/Popup"
+import Popup from "@components/popup/Popup"
+import { popupInfo } from "@constants/popupInfo"
 
 function MotionApply() {
   const mtLists = [1, 2, 3, 4]
@@ -49,6 +50,9 @@ function MotionApply() {
   }
   const bgColor = slides[visibleIndex].background
   /* //section2 */
+  /* section3 */
+  const [isPopup, setIsPopup] = useState<boolean>(false)
+  const [infos, setInfos] = useState<popupInfo | null | undefined>(undefined)
   const rides = [
     {
       id: 0,
@@ -118,8 +122,11 @@ function MotionApply() {
     },
   ]
   const handlePop = (id: number) => {
-    console.log(rides[id])
+    setInfos(rides[id])
+    setIsPopup(true)
   }
+  useEffect(() => {}, [infos])
+  /* //section3 */
   return (
     <div className={styles.motion}>
       <div className={styles.motion__box}>
@@ -237,7 +244,9 @@ function MotionApply() {
               </span>
             </button>
           ))}
-          {/* <Popup /> */}
+          <AnimatePresence>
+            {isPopup && <Popup infos={infos} setIsPopup={setIsPopup} />}
+          </AnimatePresence>
         </div>
       </div>
     </div>
