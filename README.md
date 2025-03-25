@@ -43,5 +43,4 @@ npm i framer-motion
 ### TanStack Query(React Query) 설치
 
 npm i @tanstack/react-query
-
 npm i -D @tanstack/eslint-plugin-query
