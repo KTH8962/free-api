@@ -6,6 +6,7 @@
   &__box {
     @include FLEX;
     flex: 1 1 auto;
+    //overflow: hidden;
     &__btn {
       @include FONT(18, 400);
       flex: 1 1 auto;
@@ -14,6 +15,16 @@
       &:hover {
         @include FONT(null, 500, var(--base-white));
         background-color: var(--base-black);
+      }
+    }
+    &:first-of-type {
+      button {
+        border-radius: 6px 0 0 6px;
+      }
+    }
+    &:last-of-type {
+      button {
+        border-radius: 0 6px 6px 0;
       }
     }
   }
