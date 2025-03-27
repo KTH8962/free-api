@@ -1,6 +1,8 @@
 import PhotoAxios from "@components/photoDivide/PhotoAxios"
 import styles from "./Photo.module.scss"
 import { useState } from "react"
+import PhotoReact from "@components/photoDivide/PhotoReact"
+
 function Photo() {
   const [tabIdx, setTabIdx] = useState(0)
   return (
@@ -45,6 +47,13 @@ function Photo() {
       </ul>
       {tabIdx == 0 && (
         <PhotoAxios
+          className={styles.photo__list}
+          className2={styles.photo__list__item}
+          className3={styles.photo__list__item__img}
+        />
+      )}
+      {tabIdx == 1 && (
+        <PhotoReact
           className={styles.photo__list}
           className2={styles.photo__list__item}
           className3={styles.photo__list__item__img}
