@@ -6,6 +6,7 @@ import { usePhotoStore } from "@store/usePhotoStore"
 import { motion } from "framer-motion"
 import useAxios from "@hooks/useAxios"
 import { useEffect } from "react"
+import axios from "axios"
 
 // interface PhotoInfo {
 //   id: string
@@ -50,7 +51,7 @@ function PhotoAxios({ className, className2, className3 }: PhotoClass) {
       //     import.meta.env.VITE_DOG_API_KEY
       //   }`
       // )
-      const url = `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=${selectedValue},&api_key=${
+      const url = `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=${selectedValue}&api_key=${
         import.meta.env.VITE_DOG_API_KEY
       }`
       //const { data } = await axios({ url, method: "GET" })

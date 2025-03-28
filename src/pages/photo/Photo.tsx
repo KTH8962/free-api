@@ -1,6 +1,6 @@
-import PhotoAxios from "@components/photoDivide/PhotoAxios"
-import styles from "./Photo.module.scss"
 import { useState } from "react"
+import styles from "./Photo.module.scss"
+import PhotoAxios from "@components/photoDivide/PhotoAxios"
 import PhotoReact from "@components/photoDivide/PhotoReact"
 
 function Photo() {
@@ -16,6 +16,9 @@ function Photo() {
         >
           https://thecatapi.com/
         </a>
+        <p className={styles.main__wrap__desc}>
+          {tabIdx === 0 ? "Zustand 사용" : "Zustand 미사용"}
+        </p>
       </div>
       <ul className={`${styles.tab} ${styles.mgb40}`}>
         <li className={styles.tab__box}>
