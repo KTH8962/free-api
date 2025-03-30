@@ -33,12 +33,12 @@ function PhotoReact({ className, className2, className3 }: PhotoClass) {
   }
   const {
     data,
-    isLoading,
-    isFetching,
-    isFetched,
-    hasNextPage,
-    fetchPreviousPage,
-    fetchNextPage,
+    // isLoading,
+    // isFetching,
+    // isFetched,
+    // hasNextPage,
+    // fetchPreviousPage,
+    // fetchNextPage,
   } = useInfiniteQuery({
     queryKey: ["delay", selectedValue], // 검색어로 쿼리 키 생성!
     queryFn: async () => {
