@@ -49,7 +49,7 @@ function PhotoReact({ className, className2, className3 }: PhotoClass) {
       )
     },
     initialPageParam: 1, // 첫 페이지 번호 초기화!
-    getNextPageParam: (lastPage, pages) => {
+    getNextPageParam: () => {
       //setTotalPage(maxPage)
 
       // // 다음 페이지가 있으면, 다음 페이지 번호 반환!

@@ -6,7 +6,6 @@ import { usePhotoStore } from "@store/usePhotoStore"
 import { motion } from "framer-motion"
 import useAxios from "@hooks/useAxios"
 import { useEffect } from "react"
-import axios from "axios"
 
 // interface PhotoInfo {
 //   id: string
